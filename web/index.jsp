@@ -17,6 +17,9 @@
         		var numero = document.getElementById('numero');
         		var erro = document.getElementById('erro');
         		var msgErro = document.getElementById('msgErro');
+                        var mes = document.getElementById('mes');
+                        var ano = document.getElementById('ano');
+                        var cidade = document.getElementById('cidade');
         		
         		$(numero).keyup(function(){
         			var element = $(this);
@@ -28,7 +31,7 @@
         					$(this).html('Erro: ');
         				});
         				$(msgErro).fadeIn('slow', function(){
-        					$(this).html('somente numeros sao permitidos');
+        					$(this).html('somente números são permitidos');
         				});
         			}
         			replaced = element.val().replace(soNumeros, '');
@@ -44,24 +47,53 @@
         		});
         	});
         </script>
-        <title>Tipo de Licitacao</title>
+        <title>Tipo de Licitação</title>
     </head>
     <body>
         <header class = "container">
-            <h1><a href = "index.jsp">Tipo de Licitacao</a></h1>
+            <h1><a href = "index.jsp">Tipo de Licitação</a></h1>
             <nav>
             	<ul>
-            		<li><a class = "active" href = "index.jsp">Pagina Principal</a></li>
+            		<li><a class = "active" href = "index.jsp">Página Principal</a></li>
             	</ul>
             </nav>
         </header>
         <section class = "container">
             		<article>
-            			<h1>Informacoes para a busca:</h1>
+            			<h1>Informações para a busca:</h1>
             			<form>
-            				<p><label for = "numero">Numero da Licitacao:</label><input type = "text" id = "numero"></p>
+            				<p><label for = "numero">Número da Licitação:</label><input type = "text" id = "numero"></p>
             				<p id = "error_box"><span id = "erro"></span><span class = "right" id = "msgErro"></span></p>
-            				<p><input type = "submit" value = "Buscar Licitacao"></p>
+                                        <p>Selecione o mês da licitação desejada:</p>
+                                        <select name = "mes" id = "mes">
+                                            <option value = "" selected></option>
+                                            <option value = "janeiro">Janeiro</option>
+                                            <option value = "fevereiro">Fevereiro</option>
+                                            <option value = "marco">Março</option>
+                                            <option value = "abril">Abril</option>
+                                            <option value = "maio">Maio</option>
+                                            <option value = "junho">Junho</option>
+                                            <option value = "julho">Julho</option>
+                                            <option value = "agosto">Agosto</option>
+                                            <option value = "setembro">Setembro</option>
+                                            <option value = "outubro">Outubro</option>
+                                            <option value = "Novembro">Novembro</option>
+                                            <option value = "dezembro">Dezembro</option>
+                                        </select>
+                                        
+                                        <p>Selecione o ano da licitação desejada:</p>
+                                        <select name = "ano" id = "ano">
+                                            <option value = "" selected></option>
+                                            <option value = "a2013">2013</option>
+                                            <option value = "a2014">2014</option>
+                                        </select>
+                                        
+                                        <p>Selecione a cidade da licitação desejada:</p>
+                                        <select name = "cidade" id = "cidade">
+                                            <option value = "" selected></option>
+                                            <option value = "campinas">Campinas</option>
+                                        </select>
+            				<p><input type = "submit" value = "Buscar Licitação"></p>
             			</form>
             		</article>
 		</section>
