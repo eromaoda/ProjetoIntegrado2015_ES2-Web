@@ -63,9 +63,9 @@ article{
     padding: 0px 20px;
 }
 
-form{
-    text-align: center;
-}
+/*form{
+    text-align: left;
+}*/
 
 footer{
     position: absolute;
@@ -113,6 +113,10 @@ nav ul li a .active{
     color: darkred;
 }
 
-form p .right{
-    float: right;
+form p.row {
+    width: 100%;
+    text-align: left;
+}
+form p.row .right {
+    float:right;
 }
