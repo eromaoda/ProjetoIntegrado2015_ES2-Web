@@ -38,14 +38,14 @@
                     element.val(replaced);
         	});
         	
-                $(numero).focusOut(function(){
+                /*$(numero).focusOut(function(){
                     $(erro).fadeOut(1000, function(){
         		$(this).html('');
                     });
                     $(msgErro).fadeOut(1000, function(){
                         $(this).html('');
                     });
-        	});
+        	});*/
                  
                  /*
                 $('#dominio').change(function(){
