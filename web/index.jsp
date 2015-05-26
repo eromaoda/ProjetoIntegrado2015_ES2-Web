@@ -106,17 +106,17 @@
                     </p>
                     
                     <p class = "row">
-                        <label for = "dominio">Dominio da Consulta:</label>
+                        <label for = "dominio">Domínio da Consulta:</label>
                         <select class = "right" name = "dominio" id="dominio">
                         <option value = "" selected></option>
-                        <option value = "Saude">Saude</option>
-                        <option value = "Educacao">Educacao</option>
+                        <option value = "Saude">Saúde</option>
+                        <option value = "Educacao">Educação</option>
                         <option value = "Saneamento">Saneamento</option>
                         </select>
                     </p>
                                         
                     <p class = "row">
-                        <label for = "subdom">Subdominio da Consulta:</label>
+                        <label for = "subdom">Subdomínio da Consulta:</label>
                         <select class = "right" name = "subdom" id="subdom">
                         </select>
                     </p>
