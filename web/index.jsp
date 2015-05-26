@@ -93,9 +93,18 @@
             <article>
             	<h1>Informações para a busca:</h1>
             	<form>
-                    <p style = "text-align: center"><label for = "numero">Número da Licitação:</label><input type = "text" id = "numero"></p>
-                    <p id = "error_box"><span id = "erro"></span><span class = "right" id = "msgErro"></span></p>
-                                        
+                    <!--<p style = "text-align: center"><label for = "numero">Número da Licitação:</label><input type = "text" id = "numero"></p>
+                    <p id = "error_box"><span id = "erro"></span><span class = "right" id = "msgErro"></span></p>-->
+                    <p class = "row">
+                        <label for = "licitacao">Tipo de Licitação:</label>
+                        <select class = "right" name = "licitacao" id = "licitacao">
+                            <option value = "" selected></option>
+                            <option value = "Adiantamento">Adiantamento</option>
+                            <option value = "ContratoObras">Contrato de Obras</option>
+                            <option value = "ContratoLocacao">Contarto de Locação</option>
+                        </select>
+                    </p>
+                    
                     <p class = "row">
                         <label for = "dominio">Dominio da Consulta:</label>
                         <select class = "right" name = "dominio" id="dominio">
@@ -140,13 +149,13 @@
                         </select>
                     </p>
                                         
-                    <p class = "row">
+                    <!--<p class = "row">
                         <label class = "left" for = "cidade">Cidade da licitação:</label>
                         <select class = "right" name = "cidade" id = "cidade">
                             <option value = "" selected></option>
                             <option value = "campinas">Campinas</option>
                         </select>
-                    </p>
+                    </p>-->
                     
                     <p style = "text-align: center"><input type = "submit" value = "Buscar Licitação"></p>
             	</form>
