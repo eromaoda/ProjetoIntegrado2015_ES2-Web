@@ -4,9 +4,17 @@
         <servlet-name>SearchSubdomain</servlet-name>
         <servlet-class>controllers.SearchSubdomain</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LicitacaoServlet</servlet-name>
+        <servlet-class>controllers.LicitacaoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchSubdomain</servlet-name>
         <url-pattern>/SearchSubdomain</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LicitacaoServlet</servlet-name>
+        <url-pattern>/LicitacaoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

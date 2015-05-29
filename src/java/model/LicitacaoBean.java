@@ -11,8 +11,52 @@ package model;
  */
 public class LicitacaoBean {
     //Dominio e Subdom sao outro Bean?
-    private int id;
-    private int mes;
-    private int ano;
-    private String cidade;
+    private String id;
+    private String dominio;
+    private String subdominio;
+    private String mes;
+    private String ano;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getDominio() {
+        return dominio;
+    }
+
+    public String getSubdominio() {
+        return subdominio;
+    }
+
+    public String getMes() {
+        return mes;
+    }
+
+    public String getAno() {
+        return ano;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setDominio(String dominio) {
+        this.dominio = dominio;
+    }
+
+    public void setSubdominio(String subdominio) {
+        this.subdominio = subdominio;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
+    public LicitacaoBean() {
+    }
 }
