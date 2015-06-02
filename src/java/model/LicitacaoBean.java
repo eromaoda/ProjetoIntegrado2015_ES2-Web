@@ -28,13 +28,13 @@ public class LicitacaoBean {
     public LicitacaoBean(String dominio, String subdominio, String mes, String ano, String cidade, String natureza
     , String fonte, String tipoLicitacao) {
         this.setDominio(dominio);
-        this.setDominio(subdominio);
-        this.setDominio(mes);
-        this.setDominio(ano);
-        this.setDominio(cidade);
-        this.setDominio(natureza);
-        this.setDominio(fonte);
-        this.setDominio(tipoLicitacao);
+        this.setSubdominio(subdominio);
+        this.setMes(mes);
+        this.setAno(ano);
+        this.setCidade(cidade);
+        this.setNatureza(natureza);
+        this.setFonte(fonte);
+        this.setTipoLicitacao(tipoLicitacao);
     }
     public String getCidade() {
         return cidade;
