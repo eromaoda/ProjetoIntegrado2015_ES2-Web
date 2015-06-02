@@ -45,7 +45,7 @@ public class ConnectionFactory {
             String connection = "jdbc:mysql://localhost/ride";
             //tem que add os campos String dos parametros da busca !!
             
-            Connection conn = DriveManager.getConnection(connection); //ainda tem q add os outros parametros
+            Connection conn = DriverManager.getConnection(connection); //ainda tem q add os outros parametros
             return conn; 
             //no tutorial ele pede pra add a library do driver JDBC, mas n sei se a gente usa esse tbm
         }catch(SQLException exception) {

@@ -7,6 +7,14 @@ package persistence;
 
 import model.LicitacaoBean;
 import java.sql.*;
+import java.util.List;
+import java.util.ArrayList;
+import javax.xml.namespace.QName;
+import javax.xml.transform.Source;
+import javax.xml.ws.Dispatch;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.ws.Service;
+import java.io.StringReader;
 /**
  *
  * @author eduardo
@@ -28,22 +36,38 @@ public class LicitacaoDAO {
     }
     
     //tem q colocar parametros de busca !!!
-    public LicitacaoBean getLicitacao() 
-            throws SQLException{
+    public List<LicitacaoBean> getLicitacao() throws SQLException{
         LicitacaoBean l;
         PreparedStatement stmt;
         ResultSet r;
-        String SQL = "SELECT * FROM x WHERE parametro = '";
-        stmt = connection.prepareStatement(SQL);
-        r = stmt.executeQuery();
-        
+        String result = "";        
+        List<LicitacaoBean> listaLicitacaoBean = new ArrayList<LicitacaoBean>();
+        //stmt = connection.prepareStatement(SQL);
+        //r = stmt.executeQuery();
+        /*
         while(r.next()){
             l = new LicitacaoBean();
             l.setDominio("");
             l.setSubdominio("");
             l.setId("");
         }
-        
-        return l;
+        */
+        return listaLicitacaoBean;
     }
+    /*
+    private void getListaDespesa() {
+        webService.TransparenciaWS service = new webService.TransparenciaWS();
+        QName portQName = new QName("http://tempuri.org/", "TransparenciaWSSoap12");
+        String req = "<getListaDespesa  xmlns=\"http://tempuri.org/\"><wNomeCidade>ENTER VALUE</wNomeCidade><wAno>ENTER VALUE</wAno><wMes>ENTER VALUE</wMes><wDominio>ENTER VALUE</wDominio><wSubDominio>ENTER VALUE</wSubDominio><wNatureza>ENTER VALUE</wNatureza><wFonte>ENTER VALUE</wFonte><wTipoLicitacao>ENTER VALUE</wTipoLicitacao></getListaDespesa>";
+        try {
+            // Call Web Service Operation
+            Dispatch<Source> sourceDispatch = null;
+            sourceDispatch = service.createDispatch(portQName, Source.class, Service.Mode.PAYLOAD);
+            Source result = sourceDispatch.invoke(new StreamSource(new StringReader(req)));
+        } catch (Exception ex) {
+            // TODO handle custom exceptions here
+        }
+        //return result;
+    }
+    */
 }

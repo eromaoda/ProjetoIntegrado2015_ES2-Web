@@ -16,6 +16,41 @@ public class LicitacaoBean {
     private String subdominio;
     private String mes;
     private String ano;
+    private String cidade;
+    private String natureza;
+    private String fonte;
+    private String tipoLicitacao;
+
+
+    public LicitacaoBean() {
+        
+    }
+    public LicitacaoBean(String dominio, String subdominio, String mes, String ano, String cidade, String natureza
+    , String fonte, String tipoLicitacao) {
+        this.setDominio(dominio);
+        this.setDominio(subdominio);
+        this.setDominio(mes);
+        this.setDominio(ano);
+        this.setDominio(cidade);
+        this.setDominio(natureza);
+        this.setDominio(fonte);
+        this.setDominio(tipoLicitacao);
+    }
+    public String getCidade() {
+        return cidade;
+    }
+
+    public String getNatureza() {
+        return natureza;
+    }
+
+    public String getFonte() {
+        return fonte;
+    }
+
+    public String getTipoLicitacao() {
+        return tipoLicitacao;
+    }
 
     public String getId() {
         return id;
@@ -56,7 +91,20 @@ public class LicitacaoBean {
     public void setAno(String ano) {
         this.ano = ano;
     }
-
-    public LicitacaoBean() {
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
+
+    public void setNatureza(String natureza) {
+        this.natureza = natureza;
+    }
+
+    public void setFonte(String fonte) {
+        this.fonte = fonte;
+    }
+
+    public void setTipoLicitacao(String tipoLicitacao) {
+        this.tipoLicitacao = tipoLicitacao;
+    }
+    
 }

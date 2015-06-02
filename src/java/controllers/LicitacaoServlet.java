@@ -7,11 +7,17 @@ package controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.LicitacaoBean;
+import persistence.DAOException;
+import persistence.LicitacaoDAO;
 
 /**
  *
@@ -72,8 +78,23 @@ public class LicitacaoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        LicitacaoBean l = new LicitacaoBean();
-        l.setAno(request.getParameter(""));
+        String dominio = request.getParameter("dominio");
+        String subdom = request.getParameter("subdom");
+        String licitacao = request.getParameter("licitacao");
+        
+        //LicitacaoBean licitacaoBean = new LicitacaoBean();
+        List<LicitacaoBean> listaLicitacaoBean = new ArrayList<LicitacaoBean>();
+        try{
+            LicitacaoDAO licitacaoDAO = new LicitacaoDAO();
+            listaLicitacaoBean = licitacaoDAO.getLicitacao();
+        }catch(DAOException e){
+        
+        }catch(SQLException e){
+        
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("licitacao.jsp");
+        request.setAttribute("LicitacaoBean", listaLicitacaoBean);
+        dispatcher.forward(request, response);
     }
 
     /**
