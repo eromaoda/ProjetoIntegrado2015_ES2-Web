@@ -92,7 +92,7 @@
         <section class = "container">
             <article>
             	<h1>Informações para a busca:</h1>
-            	<form>
+            	<form action = "licitacao.jsp">
                     <!--<p style = "text-align: center"><label for = "numero">Número da Licitação:</label><input type = "text" id = "numero"></p>
                     <p id = "error_box"><span id = "erro"></span><span class = "right" id = "msgErro"></span></p>-->
                     <p class = "row">
@@ -148,16 +148,10 @@
                             <option value = "a2014">2014</option>
                         </select>
                     </p>
-                                        
-                    <!--<p class = "row">
-                        <label class = "left" for = "cidade">Cidade da licitação:</label>
-                        <select class = "right" name = "cidade" id = "cidade">
-                            <option value = "" selected></option>
-                            <option value = "campinas">Campinas</option>
-                        </select>
-                    </p>-->
                     
-                    <p style = "text-align: center"><input type = "submit" value = "Buscar Licitação"></p>
+                    <p style = "text-align: center">
+                        <input type = "submit" value = "Buscar Licitação">
+                    </p>
             	</form>
             </article>
 	</section>

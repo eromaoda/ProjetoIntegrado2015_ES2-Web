@@ -28,7 +28,7 @@
         </header>
         <section>
             <article>
-                <h4>Resultados da busca:</h4>
+                <h1>Resultados da busca:</h1>
             </article>
         </section>
         <footer class = "container">
