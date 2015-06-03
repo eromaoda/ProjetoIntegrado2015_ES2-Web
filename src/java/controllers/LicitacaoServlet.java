@@ -108,7 +108,7 @@ String wTipoLicitacao){
             objLicitacao.setResultados(resultado);
             request.setAttribute("result", objLicitacao);
             RequestDispatcher rd = null;
-            rd = request.getRequestDispatcher("licitacao.jsp");
+            rd = request.getRequestDispatcher("/licitacao.jsp");
             rd.forward(request, response);
         }catch(Exception e){
             //tratamento de excecao aqui !!

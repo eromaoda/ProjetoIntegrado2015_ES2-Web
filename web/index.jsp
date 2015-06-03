@@ -92,7 +92,7 @@
         <section class = "container">
             <article>
             	<h1>Informações para a busca:</h1>
-            	<form action = "/LicitacaoServlet" method = "POST">
+            	<form action = "LicitacaoServlet" method = "POST">
                     <!--<p style = "text-align: center"><label for = "numero">Número da Licitação:</label><input type = "text" id = "numero"></p>
                     <p id = "error_box"><span id = "erro"></span><span class = "right" id = "msgErro"></span></p>-->
                     <p class = "row">
