@@ -20,6 +20,7 @@ public class LicitacaoBean {
     private String natureza;
     private String fonte;
     private String tipoLicitacao;
+    private String resultados;
 
 
     public LicitacaoBean() {
@@ -70,6 +71,14 @@ public class LicitacaoBean {
 
     public String getAno() {
         return ano;
+    }
+
+    public String getResultados() {
+        return resultados;
+    }
+
+    public void setResultados(String resultados) {
+        this.resultados = resultados;
     }
 
     public void setId(String id) {
