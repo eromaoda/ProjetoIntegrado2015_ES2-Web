@@ -6,7 +6,7 @@
     <client name="TransparenciaWS">
       <wsdl-url>http://transparenciaws.azurewebsites.net/TransparenciaWS.asmx?WSDL</wsdl-url>
       <local-wsdl-file>transparenciaws.azurewebsites.net/TransparenciaWS.asmx.wsdl</local-wsdl-file>
-      <package-name>org.tempuri</package-name>
+      <package-name>net.azurewebsites.transparenciaws</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>

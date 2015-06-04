@@ -27,18 +27,18 @@
             </nav>
         </header>
         <section>
-            <%@page import = "import model.LicitacaoBean" %>
+           <%-- <%@page import = "import model.LicitacaoBean" %>
             <%@page import = "import java.util.*" %>
             <%@page import = "import javax.servlet.http.*" %>
             <%@page import = "import java.io.*" %>
             <%
                 LicitacaoBean objLicitacao = (LicitacaoBean)request.getAttribute("result");
-            %>
+            %> --%>
             <article>
                 <h1>Resultados da busca:</h1>
-                <%
+               <%-- <%
                 System.out.println(objLicitacao.getResultados());
-                %>
+                %> --%>
             </article>
         </section>
         <footer class = "container">

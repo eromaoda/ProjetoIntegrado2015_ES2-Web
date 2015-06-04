@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://transparenciaws.azurewebsites.net/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://transparenciaws.azurewebsites.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://transparenciaws.azurewebsites.net/">
       <s:element name="getTotalDespesa">
         <s:complexType>
           <s:sequence>
@@ -71,7 +71,7 @@
   <wsdl:binding name="TransparenciaWSSoap" type="tns:TransparenciaWSSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="getTotalDespesa">
-      <soap:operation soapAction="http://tempuri.org/getTotalDespesa" style="document" />
+      <soap:operation soapAction="http://transparenciaws.azurewebsites.net/getTotalDespesa" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -80,7 +80,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getListaDespesa">
-      <soap:operation soapAction="http://tempuri.org/getListaDespesa" style="document" />
+      <soap:operation soapAction="http://transparenciaws.azurewebsites.net/getListaDespesa" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -92,7 +92,7 @@
   <wsdl:binding name="TransparenciaWSSoap12" type="tns:TransparenciaWSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="getTotalDespesa">
-      <soap12:operation soapAction="http://tempuri.org/getTotalDespesa" style="document" />
+      <soap12:operation soapAction="http://transparenciaws.azurewebsites.net/getTotalDespesa" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -101,7 +101,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getListaDespesa">
-      <soap12:operation soapAction="http://tempuri.org/getListaDespesa" style="document" />
+      <soap12:operation soapAction="http://transparenciaws.azurewebsites.net/getListaDespesa" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

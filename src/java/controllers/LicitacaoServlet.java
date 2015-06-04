@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.WebServiceRef;
 import model.LicitacaoBean;
-import org.tempuri.TransparenciaWS;
+import net.azurewebsites.transparenciaws.TransparenciaWS;
 import persistence.DAOException;
 import persistence.LicitacaoDAO;
 
@@ -89,37 +89,34 @@ String wTipoLicitacao){
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        //LicitacaoBean objLicitacao = new LicitacaoBean();
-        System.out.println(getListaDespesa("Campinas", "", "", "", "", "", "", (String)request.getAttribute("licitacao")));
-        /*objLicitacao.setAno(request.getParameter("ano"));
-        objLicitacao.setMes(request.getParameter("mes"));
-        objLicitacao.setDominio(request.getParameter("dominio"));
-        objLicitacao.setSubdominio(request.getParameter("subdom"));
-        objLicitacao.setTipoLicitacao(request.getParameter("licitacao"));*/
         
-        //System.out.println("DOMINIO = " + objLicitacao.getDominio());
         try{
+            net.azurewebsites.transparenciaws.TransparenciaWS service = new net.azurewebsites.transparenciaws.TransparenciaWS();
+            net.azurewebsites.transparenciaws.TransparenciaWSSoap port = service.getTransparenciaWSSoap();
+            
             LicitacaoBean objLicitacao = new LicitacaoBean();
         
-        objLicitacao.setAno(request.getParameter("ano"));
-        objLicitacao.setMes(request.getParameter("mes"));
-        objLicitacao.setDominio(request.getParameter("dominio"));
-        objLicitacao.setSubdominio(request.getParameter("subdom"));
-        objLicitacao.setTipoLicitacao(request.getParameter("licitacao"));
+            objLicitacao.setAno(request.getParameter("ano"));
+            objLicitacao.setMes(request.getParameter("mes"));
+            objLicitacao.setDominio(request.getParameter("dominio"));
+            objLicitacao.setSubdominio(request.getParameter("subdom"));
+            objLicitacao.setTipoLicitacao(request.getParameter("licitacao"));
             
             String dominio = objLicitacao.getDominio();
             String subdom = objLicitacao.getSubdominio();
             String licitacao = objLicitacao.getTipoLicitacao();
             String ano = objLicitacao.getAno();
             String mes = objLicitacao.getMes();
-            String resultado = getListaDespesa("Campinas", ano, mes, dominio, subdom, "", "", licitacao);
+            
+            String resultado = port.getListaDespesa("Campinas", ano, mes, dominio, subdom, "", "", licitacao);
+            
             objLicitacao.setResultados(resultado);
             request.setAttribute("result", objLicitacao);
             RequestDispatcher rd = null;
             rd = request.getRequestDispatcher("./licitacao.jsp");
             rd.forward(request, response);
         //ta caindo sempre na excecao, nao sei oq fazer !!
-            //aparentemente eh alguma coisa com o metodo do webservice
+        //aparentemente eh alguma coisa com o metodo do webservice
         }catch(Exception e){
             //tratar excecao
             response.sendRedirect("./index.jsp");
@@ -159,12 +156,12 @@ String wTipoLicitacao){
         return port.getListaDespesa(wNomeCidade, wAno, wMes, wDominio, wSubDominio, wNatureza, wFonte, wTipoLicitacao);
     }*/
 
-    private String getListaDespesa(java.lang.String wNomeCidade, java.lang.String wAno, java.lang.String wMes, java.lang.String wDominio, java.lang.String wSubDominio, java.lang.String wNatureza, java.lang.String wFonte, java.lang.String wTipoLicitacao) {
+    /*private String getListaDespesa(java.lang.String wNomeCidade, java.lang.String wAno, java.lang.String wMes, java.lang.String wDominio, java.lang.String wSubDominio, java.lang.String wNatureza, java.lang.String wFonte, java.lang.String wTipoLicitacao) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
         // If the calling of port operations may lead to race condition some synchronization is required.
         org.tempuri.TransparenciaWSSoap port = service.getTransparenciaWSSoap12();
         return port.getListaDespesa(wNomeCidade, wAno, wMes, wDominio, wSubDominio, wNatureza, wFonte, wTipoLicitacao);
-    }
+    }*/
     
 
 }

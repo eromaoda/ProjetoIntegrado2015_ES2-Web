@@ -39,7 +39,7 @@
         </copy>
     </target>
     <target name="wsimport-client-clean-TransparenciaWS" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/org/tempuri"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/net/azurewebsites/transparenciaws"/>
         <delete dir="${build.generated.dir}/jax-wsCache/TransparenciaWS"/>
     </target>
     <target name="wsimport-client-generate" depends="wsimport-client-TransparenciaWS"/>
