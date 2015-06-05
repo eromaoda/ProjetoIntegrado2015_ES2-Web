@@ -111,7 +111,7 @@ String wTipoLicitacao){
             String resultado = port.getListaDespesa("Campinas", ano, mes, dominio, subdom, "", "", licitacao);
             
             //objLicitacao.setResultados(resultado);
-            request.setAttribute("result", objLicitacao);
+            request.setAttribute("result", objLicitacao.getResultados());
             RequestDispatcher rd = null;
             rd = request.getRequestDispatcher("./licitacao.jsp");
             rd.forward(request, response);
