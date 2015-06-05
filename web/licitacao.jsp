@@ -17,11 +17,19 @@
         <script src = "http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <!-- colocar o jquery + ajax aqui -->
         <script>
-            $(document).ready{
+            $(document).ready(function(){
+                $.ajax{
+                    type: "GET",
+                    url: ;
+                    dataType: "xml",
+                    success: function(xml){
+                        
+                    }
+                }
                 var xml = '${result}';
                 var parsedXML = $.parseXML(xml);
                 $xml = $(parsedXML);
-            };
+            });
         </script>
         <title>Tipo de Licitação | Resultados</title>
     </head>
@@ -35,14 +43,14 @@
             </nav>
         </header>
         <section>
-            <%
+            <%--<%
                 LicitacaoBean objLicitacao = (LicitacaoBean)request.getAttribute("result");
-            %> 
+            %> --%>
             <article>
                 <h1>Resultados da busca:</h1>
-                <%
-                
-                %> 
+                <table id = "tabelaResultados">
+                    
+                </table>
             </article>
         </section>
         <footer class = "container">
