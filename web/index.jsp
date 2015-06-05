@@ -125,18 +125,18 @@
                         <label for = "mes">Mês da licitação:<label>
                         <select class = "right" name = "mes" id = "mes">
                             <option value = "" selected></option>
-                            <option value = "janeiro">Janeiro</option>
-                            <option value = "fevereiro">Fevereiro</option>
-                            <option value = "marco">Março</option>
-                            <option value = "abril">Abril</option>
-                            <option value = "maio">Maio</option>
-                            <option value = "junho">Junho</option>
-                            <option value = "julho">Julho</option>
-                            <option value = "agosto">Agosto</option>
-                            <option value = "setembro">Setembro</option>
-                            <option value = "outubro">Outubro</option>
-                            <option value = "novembro">Novembro</option>
-                            <option value = "dezembro">Dezembro</option>
+                            <option value = "01">Janeiro</option>
+                            <option value = "02">Fevereiro</option>
+                            <option value = "03">Março</option>
+                            <option value = "04">Abril</option>
+                            <option value = "05">Maio</option>
+                            <option value = "06">Junho</option>
+                            <option value = "07">Julho</option>
+                            <option value = "08">Agosto</option>
+                            <option value = "09">Setembro</option>
+                            <option value = "10">Outubro</option>
+                            <option value = "11">Novembro</option>
+                            <option value = "12">Dezembro</option>
                         </select>
                     </p>
                                         
@@ -144,8 +144,8 @@
                         <label for = "ano">Ano da licitação:</label>
                         <select class = "right" name = "ano" id = "ano">
                             <option value = "" selected></option>
-                            <option value = "a2013">2013</option>
-                            <option value = "a2014">2014</option>
+                            <option value = "2013">2013</option>
+                            <option value = "2014">2014</option>
                         </select>
                     </p>
                     
