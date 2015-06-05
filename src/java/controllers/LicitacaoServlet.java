@@ -91,7 +91,7 @@ String wTipoLicitacao){
         //processRequest(request, response);
         
         try{
-            net.azurewebsites.transparenciaws.TransparenciaWS service = new net.azurewebsites.transparenciaws.TransparenciaWS();
+            //net.azurewebsites.transparenciaws.TransparenciaWS service = new net.azurewebsites.transparenciaws.TransparenciaWS();
             net.azurewebsites.transparenciaws.TransparenciaWSSoap port = service.getTransparenciaWSSoap();
             
             LicitacaoBean objLicitacao = new LicitacaoBean();
@@ -111,7 +111,7 @@ String wTipoLicitacao){
             String resultado = port.getListaDespesa("Campinas", ano, mes, dominio, subdom, "", "", licitacao);
             
             //objLicitacao.setResultados(resultado);
-            request.setAttribute("result", objLicitacao.getResultados());
+            request.setAttribute("result", resultado);
             RequestDispatcher rd = null;
             rd = request.getRequestDispatcher("./licitacao.jsp");
             rd.forward(request, response);

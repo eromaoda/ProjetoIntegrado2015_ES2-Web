@@ -5,10 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import = "import model.LicitacaoBean" %>
-<%@page import = "import java.util.*" %>
-<%@page import = "import javax.servlet.http.*" %>
-<%@page import = "import java.io.*" %>
+<%@page import = "model.LicitacaoBean" %>
+<%@page import = "java.util.*" %>
+<%@page import = "javax.servlet.http.*" %>
+<%@page import = "java.io.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +17,7 @@
         <script src = "http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <!-- colocar o jquery + ajax aqui -->
         <script>
-            $(document).ready(function(){
+            /*$(document).ready(function(){
                 $.ajax{
                     type: "GET",
                     url: ;
@@ -29,7 +29,7 @@
                 var xml = '${result}';
                 var parsedXML = $.parseXML(xml);
                 $xml = $(parsedXML);
-            });
+            });*/
         </script>
         <title>Tipo de Licitação | Resultados</title>
     </head>
@@ -43,9 +43,6 @@
             </nav>
         </header>
         <section>
-            <%--<%
-                LicitacaoBean objLicitacao = (LicitacaoBean)request.getAttribute("result");
-            %> --%>
             <article>
                 <h1>Resultados da busca:</h1>
                 <table id = "tabelaResultados">

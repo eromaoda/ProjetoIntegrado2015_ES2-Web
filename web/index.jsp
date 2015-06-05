@@ -99,9 +99,18 @@
                         <label for = "licitacao">Tipo de Licitação:</label>
                         <select class = "right" name = "licitacao" id = "licitacao">
                             <option value = "" selected></option>
+                            <option value = "Pessoal">Pessoal</option>
+                            <option value = "Contrato de Obras">Contrato de Obras</option>
+                            <option value = "Material Permanente">Contrato de Locação</option>
+                            <option value = "Contrato de Termo de Parceria">Contrato de Locação</option>
+                            <option value = "Contrato de Fornecimento de Serviços">Contrato de Locação</option>
+                            <option value = "Registro de Preços">Registro de Preços</option>
+                            <option value = "Serviços/Outros">Serviços/Outros</option>
+                            <option value = "Contrato Outros">Contrato/Outros</option>
+                            <option value = "Material de Consumo">Material de Consumo</option>
                             <option value = "Adiantamento">Adiantamento</option>
-                            <option value = "ContratoObras">Contrato de Obras</option>
-                            <option value = "ContratoLocacao">Contrato de Locação</option>
+                            <option value = "Contrato de Locacação">Contrato de Locação</option>
+                            <option value = "Contratos de Fornecimento de Material">Contratos de Fornec. de Material</option>
                         </select>
                     </p>
                     
@@ -109,14 +118,13 @@
                         <label for = "dominio">Domínio da Consulta:</label>
                         <select class = "right" name = "dominio" id="dominio">
                         <option value = "" selected></option>
-                        <option value = "Saude">Saúde</option>
-                        <option value = "Educacao">Educação</option>
-                        <option value = "Saneamento">Saneamento</option>
+                        <option value = "10 - SAUDE">Saúde</option>
+                        <option value = "12 - EDUCACAO">Educação</option>
                         </select>
                     </p>
                                         
                     <p class = "row">
-                        <label for = "subdom">Subdomínio da Consulta:</label>
+                        <label for = "subdom">Subdomínio:</label>
                         <select class = "right" name = "subdom" id="subdom">
                         </select>
                     </p>
