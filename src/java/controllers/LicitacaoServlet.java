@@ -6,7 +6,7 @@
 package controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,9 @@ import model.LicitacaoBean;
 import net.azurewebsites.transparenciaws.TransparenciaWS;
 import persistence.DAOException;
 import persistence.LicitacaoDAO;
+import javax.xml.parsers.*;
+import org.xml.sax.InputSource;
+import org.w3c.dom.*;
 
 /**
  *
@@ -91,7 +94,7 @@ String wTipoLicitacao){
         //processRequest(request, response);
         
         try{
-            //net.azurewebsites.transparenciaws.TransparenciaWS service = new net.azurewebsites.transparenciaws.TransparenciaWS();
+            net.azurewebsites.transparenciaws.TransparenciaWS service = new net.azurewebsites.transparenciaws.TransparenciaWS();
             net.azurewebsites.transparenciaws.TransparenciaWSSoap port = service.getTransparenciaWSSoap();
             
             LicitacaoBean objLicitacao = new LicitacaoBean();
@@ -108,9 +111,41 @@ String wTipoLicitacao){
             String ano = objLicitacao.getAno();
             String mes = objLicitacao.getMes();
             
-            String resultado = port.getListaDespesa("Campinas", ano, mes, dominio, subdom, "", "", licitacao);
-            
-            //objLicitacao.setResultados(resultado);
+            String xml = port.getListaDespesa("Campinas", ano, mes, dominio, subdom, "", "", licitacao);
+            String resultado = new String();
+            try{
+                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+                DocumentBuilder db = dbf.newDocumentBuilder();
+                InputSource inputSrc = new InputSource();
+                inputSrc.setCharacterStream(new StringReader(xml));
+                
+                Document doc = db.parse(inputSrc);
+                NodeList nodes = doc.getElementsByTagName("Despesa");
+                
+                for(int i = 0; i < nodes.getLength(); i++){
+                    Element element = (Element)nodes.item(i);
+                    
+                    NodeList orgao = element.getElementsByTagName("DescricaoOrgao");
+                    Element line = (Element)orgao.item(0);
+                    
+                    resultado = resultado + "<tr><td>" + getCharacterDataFromElement(line) + "</td>";
+                    
+                    NodeList credor = element.getElementsByTagName("CpfCnpjCredor");
+                    line = (Element)credor.item(0);
+                    
+                    resultado = resultado + "<td>" + getCharacterDataFromElement(line) + "</td>";
+                    
+                    NodeList valor = element.getElementsByTagName("Valor");
+                    line = (Element)valor.item(0);
+                    
+                    resultado = resultado + "<td>" + getCharacterDataFromElement(line) + "</td></tr>";
+                }
+                
+            }catch(Exception e){
+                System.out.println("Erro no parser");
+            }
+            System.out.println(resultado);
+//objLicitacao.setResultados(resultado);
             request.setAttribute("result", resultado);
             RequestDispatcher rd = null;
             rd = request.getRequestDispatcher("./licitacao.jsp");
@@ -162,6 +197,13 @@ String wTipoLicitacao){
         org.tempuri.TransparenciaWSSoap port = service.getTransparenciaWSSoap12();
         return port.getListaDespesa(wNomeCidade, wAno, wMes, wDominio, wSubDominio, wNatureza, wFonte, wTipoLicitacao);
     }*/
-    
+    public static String getCharacterDataFromElement(Element e) {
+    Node child = e.getFirstChild();
+    if (child instanceof CharacterData) {
+       CharacterData cd = (CharacterData) child;
+       return cd.getData();
+    }
+    return "?";
+  }
 
 }

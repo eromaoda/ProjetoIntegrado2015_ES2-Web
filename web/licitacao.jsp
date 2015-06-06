@@ -18,17 +18,15 @@
         <!-- colocar o jquery + ajax aqui -->
         <script>
             /*$(document).ready(function(){
-                $.ajax{
-                    type: "GET",
-                    url: ;
-                    dataType: "xml",
-                    success: function(xml){
-                        
-                    }
-                }
-                var xml = '${result}';
-                var parsedXML = $.parseXML(xml);
+                var xml = '${result}',
+                parsedXML = $.parseXML(xml),
                 $xml = $(parsedXML);
+                $(xml).find("Despesa").each(function(){
+                    $('#tabelaResultados').append("<tr>" + "<td>" + $(this).attr("DescricaoOrgao") 
+                            + "</td>" + "<td>" + $(this).attr("CpfCnpjCredor") + "</td>"
+                            + "<td>" + $(this).attr("Valor") + "</td>" + "</tr>");
+                });
+                
             });*/
         </script>
         <title>Tipo de Licitação | Resultados</title>
@@ -46,7 +44,12 @@
             <article>
                 <h1>Resultados da busca:</h1>
                 <table id = "tabelaResultados">
-                    
+                    <tr>
+                        <th>Orgão</th>
+                        <th>Credor</th>
+                        <th>Valor</th>
+                        <% System.out.println(request.getAttribute("result")); %>
+                    </tr>
                 </table>
             </article>
         </section>
