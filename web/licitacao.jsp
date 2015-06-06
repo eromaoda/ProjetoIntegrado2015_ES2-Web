@@ -48,7 +48,7 @@
                         <th>Orgão</th>
                         <th>Credor</th>
                         <th>Valor</th>
-                        <% System.out.println(request.getAttribute("result")); %>
+                        <%= request.getAttribute("result") %>
                     </tr>
                 </table>
             </article>

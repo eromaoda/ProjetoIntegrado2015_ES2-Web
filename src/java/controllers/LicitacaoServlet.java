@@ -23,6 +23,7 @@ import persistence.LicitacaoDAO;
 import javax.xml.parsers.*;
 import org.xml.sax.InputSource;
 import org.w3c.dom.*;
+import java.util.regex.*;
 
 /**
  *
@@ -94,8 +95,8 @@ String wTipoLicitacao){
         //processRequest(request, response);
         
         try{
-            net.azurewebsites.transparenciaws.TransparenciaWS service = new net.azurewebsites.transparenciaws.TransparenciaWS();
-            net.azurewebsites.transparenciaws.TransparenciaWSSoap port = service.getTransparenciaWSSoap();
+            //net.azurewebsites.transparenciaws.TransparenciaWS service = new net.azurewebsites.transparenciaws.TransparenciaWS();
+            //net.azurewebsites.transparenciaws.TransparenciaWSSoap port = service.getTransparenciaWSSoap();
             
             LicitacaoBean objLicitacao = new LicitacaoBean();
         
@@ -111,8 +112,39 @@ String wTipoLicitacao){
             String ano = objLicitacao.getAno();
             String mes = objLicitacao.getMes();
             
-            String xml = port.getListaDespesa("Campinas", ano, mes, dominio, subdom, "", "", licitacao);
+            System.out.println(dominio);
+            System.out.println(subdom);
+            System.out.println(licitacao);
+            System.out.println(ano);
+            System.out.println(mes);
+            
+            String xml = getListaDespesa("Campinas", ano, mes, dominio, subdom, "", "", licitacao);
+            /*xml = xml.replace("Despesa diffgr:= ", "Despesa");
+            xml = xml.replace("msdata:rowOrder=", "");
+            xml = xml.replace("\"Despesa", "\"");
+            xml = xml.replaceAll("([\"'])(?:(?=(\\\\?))\\2.)*?\\1", "");
+            //xml = xml.replace("<Despesa >", "<Despesa>");
+            xml = xml.replace("<xs:element name= type= minOccurs= />", "");
+            xml = xml.replace("<?xml version= encoding=?>", "");
+            xml = xml.replace("<xs:schema id= xmlns= xmlns:xs= xmlns:msdata=>\n" +
+"    <xs:element name= msdata:IsDataSet= msdata:UseCurrentLocale=>\n" +
+"      <xs:complexType>\n" +
+"        <xs:choice minOccurs= maxOccurs=>\n" +
+"          <xs:element name=>\n" +
+"            <xs:complexType>\n" +
+"              <xs:sequence>", "");
+            xml = xml.replace("</xs:sequence>\n" +
+"            </xs:complexType>\n" +
+"          </xs:element>\n" +
+"        </xs:choice>\n" +
+"      </xs:complexType>\n" +
+"    </xs:element>\n" +
+"  </xs:schema>\n" +
+"  <diffgr:diffgram xmlns:msdata= xmlns:diffgr= />", "");*/
+            System.out.println(xml);
             String resultado = new String();
+           
+            
             try{
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                 DocumentBuilder db = dbf.newDocumentBuilder();
@@ -144,7 +176,8 @@ String wTipoLicitacao){
             }catch(Exception e){
                 System.out.println("Erro no parser");
             }
-            System.out.println(resultado);
+            
+            System.out.println("o result eh: " + resultado);
 //objLicitacao.setResultados(resultado);
             request.setAttribute("result", resultado);
             RequestDispatcher rd = null;
@@ -191,12 +224,12 @@ String wTipoLicitacao){
         return port.getListaDespesa(wNomeCidade, wAno, wMes, wDominio, wSubDominio, wNatureza, wFonte, wTipoLicitacao);
     }*/
 
-    /*private String getListaDespesa(java.lang.String wNomeCidade, java.lang.String wAno, java.lang.String wMes, java.lang.String wDominio, java.lang.String wSubDominio, java.lang.String wNatureza, java.lang.String wFonte, java.lang.String wTipoLicitacao) {
+    private String getListaDespesa(java.lang.String wNomeCidade, java.lang.String wAno, java.lang.String wMes, java.lang.String wDominio, java.lang.String wSubDominio, java.lang.String wNatureza, java.lang.String wFonte, java.lang.String wTipoLicitacao) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
         // If the calling of port operations may lead to race condition some synchronization is required.
-        org.tempuri.TransparenciaWSSoap port = service.getTransparenciaWSSoap12();
+        net.azurewebsites.transparenciaws.TransparenciaWSSoap port = service.getTransparenciaWSSoap12();
         return port.getListaDespesa(wNomeCidade, wAno, wMes, wDominio, wSubDominio, wNatureza, wFonte, wTipoLicitacao);
-    }*/
+    }
     public static String getCharacterDataFromElement(Element e) {
     Node child = e.getFirstChild();
     if (child instanceof CharacterData) {
