@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel = "stylesheet" type = "text/css" href = "style.css">
+        <link rel="stylesheet" type="text/css" href="jquery.dataTables.css">
         <script src = "http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script>
             <%--Implementando as verificacoes de entrada, utilizando JavaScript com jQuery--%>
