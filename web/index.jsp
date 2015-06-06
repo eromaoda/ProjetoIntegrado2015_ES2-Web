@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel = "stylesheet" type = "text/css" href = "style.css">
-        <link rel="stylesheet" type="text/css" href="jquery.dataTables.css">
+        <!--<link rel="stylesheet" type="text/css" href="jquery.dataTables.css">-->
         <script src = "http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script>
             <%--Implementando as verificacoes de entrada, utilizando JavaScript com jQuery--%>
@@ -75,8 +75,9 @@
                     });  
 
                   }); 
-                
-                
+                $('#filtro').click(function(){
+                    $('.row#fil').fadeToggle();
+                });
             });
         </script>
         <title>Tipo de Licitação | Busca</title>
@@ -129,8 +130,10 @@
                         <select class = "right" name = "subdom" id="subdom">
                         </select>
                     </p>
-                                        
-                    <p class = "row">
+                    
+                    <p id="filtro" style="text-decoration:underline;font-size:11px;">Gostaria de pesquisar pelo mês ? (Clique aqui)</p>
+                    
+                    <p class = "row" id = "fil" style = "display:none;">
                         <label for = "mes">Mês da licitação:<label>
                         <select class = "right" name = "mes" id = "mes">
                             <option value = "" selected></option>
@@ -149,14 +152,14 @@
                         </select>
                     </p>
                                         
-                    <p class = "row">
+                    <!--<p class = "row" id = "fil" style = "display:none;">
                         <label for = "ano">Ano da licitação:</label>
                         <select class = "right" name = "ano" id = "ano">
                             <option value = "" selected></option>
                             <option value = "2013">2013</option>
                             <option value = "2014">2014</option>
                         </select>
-                    </p>
+                    </p>-->
                     
                     <p style = "text-align: center">
                         <input id="buscar" type = "submit" value = "Buscar Licitação">

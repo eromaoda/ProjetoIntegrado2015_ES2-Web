@@ -100,7 +100,7 @@ String wTipoLicitacao){
             
             LicitacaoBean objLicitacao = new LicitacaoBean();
         
-            objLicitacao.setAno(request.getParameter("ano"));
+            //objLicitacao.setAno(request.getParameter("ano"));
             objLicitacao.setMes(request.getParameter("mes"));
             objLicitacao.setDominio(request.getParameter("dominio"));
             objLicitacao.setSubdominio(request.getParameter("subdom"));
@@ -112,36 +112,7 @@ String wTipoLicitacao){
             String ano = objLicitacao.getAno();
             String mes = objLicitacao.getMes();
             
-            System.out.println(dominio);
-            System.out.println(subdom);
-            System.out.println(licitacao);
-            System.out.println(ano);
-            System.out.println(mes);
-            
-            String xml = getListaDespesa("Campinas", ano, mes, dominio, subdom, "", "", licitacao);
-            /*xml = xml.replace("Despesa diffgr:= ", "Despesa");
-            xml = xml.replace("msdata:rowOrder=", "");
-            xml = xml.replace("\"Despesa", "\"");
-            xml = xml.replaceAll("([\"'])(?:(?=(\\\\?))\\2.)*?\\1", "");
-            //xml = xml.replace("<Despesa >", "<Despesa>");
-            xml = xml.replace("<xs:element name= type= minOccurs= />", "");
-            xml = xml.replace("<?xml version= encoding=?>", "");
-            xml = xml.replace("<xs:schema id= xmlns= xmlns:xs= xmlns:msdata=>\n" +
-"    <xs:element name= msdata:IsDataSet= msdata:UseCurrentLocale=>\n" +
-"      <xs:complexType>\n" +
-"        <xs:choice minOccurs= maxOccurs=>\n" +
-"          <xs:element name=>\n" +
-"            <xs:complexType>\n" +
-"              <xs:sequence>", "");
-            xml = xml.replace("</xs:sequence>\n" +
-"            </xs:complexType>\n" +
-"          </xs:element>\n" +
-"        </xs:choice>\n" +
-"      </xs:complexType>\n" +
-"    </xs:element>\n" +
-"  </xs:schema>\n" +
-"  <diffgr:diffgram xmlns:msdata= xmlns:diffgr= />", "");*/
-            System.out.println(xml);
+            String xml = getListaDespesa("Campinas", "2014", mes, dominio, subdom, "", "", licitacao);
             String resultado = new String();
            
             
@@ -174,11 +145,10 @@ String wTipoLicitacao){
                 }
                 
             }catch(Exception e){
-                System.out.println("Erro no parser");
+                //System.out.println("Erro no parser");
+                response.sendRedirect("./pgErro.jsp");
             }
             
-            //System.out.println("o result eh: " + resultado);
-//objLicitacao.setResultados(resultado);
             String pgDestino = new String();
             if(resultado.equals("")) pgDestino = "./noResults.jsp";
             else pgDestino = "./licitacao.jsp";
@@ -186,14 +156,9 @@ String wTipoLicitacao){
             RequestDispatcher rd = null;
             rd = request.getRequestDispatcher(pgDestino);
             rd.forward(request, response);
-        //ta caindo sempre na excecao, nao sei oq fazer !!
-        //aparentemente eh alguma coisa com o metodo do webservice
         }catch(Exception e){
-            //tratar excecao
             response.sendRedirect("./pgErro.jsp");
         }
-        //Integrar o web service no projeto 
-        //Chamar o metodo getLicitacaoList do web service
         
         //LicitacaoBean licitacaoBean = new LicitacaoBean();
         /*List<LicitacaoBean> listaLicitacaoBean = new ArrayList<LicitacaoBean>();

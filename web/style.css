@@ -11,7 +11,7 @@ and open the template in the editor.
 body{
     min-width: 500px;
     margin: 0;
-    font-family: Helvetica Nue, Helvetica, Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .container{
