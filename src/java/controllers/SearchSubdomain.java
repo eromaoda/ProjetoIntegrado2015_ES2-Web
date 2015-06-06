@@ -71,9 +71,9 @@ public class SearchSubdomain extends HttpServlet {
             subdoms += "<option value=\"122 - ASSISTENCIA GERAL\">Assistência Geral</option>";
         }else if(dominio.equals("12 - EDUCACAO")){
             subdoms += "<option value=\"\" selected></option>";
-            subdoms += "<option value=\"367 - EDUCACAO ESPECIAL\">Eduacacao Superior</option>";
+            subdoms += "<option value=\"367 - EDUCACAO ESPECIAL\">Educação Superior</option>";
             subdoms += "<option value=\"366 - EDUCACAO DE JOVENS E ADULTOS\">Ensino de Jovens/Adultos</option>";
-            subdoms += "<option value=\"365 - EDUCACAO INFANTIL\">Eduacacao Infantil</option>";
+            subdoms += "<option value=\"365 - EDUCACAO INFANTIL\">Educação Infantil</option>";
             subdoms += "<option value=\"361 - ENSINO FUNDAMENTAL\">Ensino Fundamental</option>";
             subdoms += "<option value=\"363 - ENSINO PROFISSIONAL\">Ensino Profissional</option>";
 
