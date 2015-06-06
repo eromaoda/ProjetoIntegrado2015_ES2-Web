@@ -97,7 +97,7 @@ header, footer{
 
 header a,
 header a:link,
-header a:visited
+header a:visited,
 header a:active{
     color: lightyellow;
 }
