@@ -177,17 +177,20 @@ String wTipoLicitacao){
                 System.out.println("Erro no parser");
             }
             
-            System.out.println("o result eh: " + resultado);
+            //System.out.println("o result eh: " + resultado);
 //objLicitacao.setResultados(resultado);
+            String pgDestino = new String();
+            if(resultado.equals("")) pgDestino = "./noResults.jsp";
+            else pgDestino = "./licitacao.jsp";
             request.setAttribute("result", resultado);
             RequestDispatcher rd = null;
-            rd = request.getRequestDispatcher("./licitacao.jsp");
+            rd = request.getRequestDispatcher(pgDestino);
             rd.forward(request, response);
         //ta caindo sempre na excecao, nao sei oq fazer !!
         //aparentemente eh alguma coisa com o metodo do webservice
         }catch(Exception e){
             //tratar excecao
-            response.sendRedirect("./index.jsp");
+            response.sendRedirect("./pgErro.jsp");
         }
         //Integrar o web service no projeto 
         //Chamar o metodo getLicitacaoList do web service
