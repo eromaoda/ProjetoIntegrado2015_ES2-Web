@@ -91,7 +91,7 @@
         </header>
         <section class = "container">
             <article>
-            	<h1>Informações para a busca:</h1>
+            	<h1 style="text-align: center;padding-bottom:20px">Informações para a busca:</h1>
             	<form name = "formulario" action = "LicitacaoServlet" method = "POST">
                     <!--<p style = "text-align: center"><label for = "numero">Número da Licitação:</label><input type = "text" id = "numero"></p>
                     <p id = "error_box"><span id = "erro"></span><span class = "right" id = "msgErro"></span></p>-->
@@ -158,7 +158,7 @@
                     </p>
                     
                     <p style = "text-align: center">
-                        <input type = "submit" value = "Buscar Licitação">
+                        <input id="buscar" type = "submit" value = "Buscar Licitação">
                     </p>
             	</form>
             </article>
