@@ -63,12 +63,14 @@ public class SearchSubdomain extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         
         if(dominio.equals("10 - SAUDE")){
+            subdoms += "<option value=\"\" selected></option>";
             subdoms += "<option value=\"304 - VIGILANCIA SANITARIA\">Vigilância Sanitária</option>";
             subdoms += "<option value=\"302 - ASSISTENCIA HOSPITALAR E AMBULATORIAL\">Assist. Hospitalar/Ambulatorial</option>";
             subdoms += "<option value=\"305 - VIGILANCIA EPIDEMOLOGICA\">Vigilância Epidemológica</option>";            
             subdoms += "<option value=\"301 - ATENCAO BASICA\">Atenção Básica</option>";
             subdoms += "<option value=\"122 - ASSISTENCIA GERAL\">Assistência Geral</option>";
         }else if(dominio.equals("12 - EDUCACAO")){
+            subdoms += "<option value=\"\" selected></option>";
             subdoms += "<option value=\"367 - EDUCACAO ESPECIAL\">Eduacacao Superior</option>";
             subdoms += "<option value=\"366 - EDUCACAO DE JOVENS E ADULTOS\">Ensino de Jovens/Adultos</option>";
             subdoms += "<option value=\"365 - EDUCACAO INFANTIL\">Eduacacao Infantil</option>";
