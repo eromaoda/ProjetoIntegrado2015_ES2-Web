@@ -43,6 +43,7 @@
         <section>
             <article>
                 <h1>Resultados da busca:</h1>
+                <p>Valor total = R$ <%= request.getAttribute("valorTotal")%></p>
                 <table id = "tabelaResultados" class = "display">
                     <thead>
                         <tr>

@@ -112,6 +112,7 @@ String wTipoLicitacao){
             String ano = objLicitacao.getAno();
             String mes = objLicitacao.getMes();
             
+            String vTotal = getTotalDespesa("Campinas", "2014", mes, dominio, subdom, "", "", licitacao);
             String xml = getListaDespesa("Campinas", "2014", mes, dominio, subdom, "", "", licitacao);
             String resultado = new String();
            
@@ -141,7 +142,7 @@ String wTipoLicitacao){
                     NodeList valor = element.getElementsByTagName("Valor");
                     line = (Element)valor.item(0);
                     
-                    resultado = resultado + "<td>" + getCharacterDataFromElement(line) + "</td></tr>";
+                    resultado = resultado + "<td>" + "R$ " + getCharacterDataFromElement(line) + "</td></tr>";
                 }
                 
             }catch(Exception e){
@@ -153,6 +154,7 @@ String wTipoLicitacao){
             if(resultado.equals("")) pgDestino = "./noResults.jsp";
             else pgDestino = "./licitacao.jsp";
             request.setAttribute("result", resultado);
+            request.setAttribute("valorTotal", vTotal);
             RequestDispatcher rd = null;
             rd = request.getRequestDispatcher(pgDestino);
             rd.forward(request, response);
@@ -198,6 +200,14 @@ String wTipoLicitacao){
         net.azurewebsites.transparenciaws.TransparenciaWSSoap port = service.getTransparenciaWSSoap12();
         return port.getListaDespesa(wNomeCidade, wAno, wMes, wDominio, wSubDominio, wNatureza, wFonte, wTipoLicitacao);
     }
+    
+    private String getTotalDespesa(java.lang.String wNomeCidade, java.lang.String wAno, java.lang.String wMes, java.lang.String wDominio, java.lang.String wSubDominio, java.lang.String wNatureza, java.lang.String wFonte, java.lang.String wTipoLicitacao) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        net.azurewebsites.transparenciaws.TransparenciaWSSoap port = service.getTransparenciaWSSoap12();
+        return port.getTotalDespesa(wNomeCidade, wAno, wMes, wDominio, wSubDominio, wNatureza, wFonte, wTipoLicitacao);
+    }
+    
     public static String getCharacterDataFromElement(Element e) {
     Node child = e.getFirstChild();
     if (child instanceof CharacterData) {
