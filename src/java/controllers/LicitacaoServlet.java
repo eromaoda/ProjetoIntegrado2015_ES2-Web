@@ -146,7 +146,6 @@ String wTipoLicitacao){
                 }
                 
             }catch(Exception e){
-                //System.out.println("Erro no parser");
                 response.sendRedirect("./pgErro.jsp");
             }
             
