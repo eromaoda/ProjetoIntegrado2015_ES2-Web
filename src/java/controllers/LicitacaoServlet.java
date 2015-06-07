@@ -93,14 +93,15 @@ String wTipoLicitacao){
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        
+        /*
+        Esse servlet é responsável por chamar os métodos do WebService,
+        getListaDespesa (mostrar as despesas) e getTotalDespesa (exibir o valor total gasto);
+        também é responsável por montar a tabela HTML com os resultados e passar 
+        os atributos de requisição para a view final
+        */
         try{
-            //net.azurewebsites.transparenciaws.TransparenciaWS service = new net.azurewebsites.transparenciaws.TransparenciaWS();
-            //net.azurewebsites.transparenciaws.TransparenciaWSSoap port = service.getTransparenciaWSSoap();
-            
             LicitacaoBean objLicitacao = new LicitacaoBean();
         
-            //objLicitacao.setAno(request.getParameter("ano"));
             objLicitacao.setMes(request.getParameter("mes"));
             objLicitacao.setDominio(request.getParameter("dominio"));
             objLicitacao.setSubdominio(request.getParameter("subdom"));
@@ -126,6 +127,7 @@ String wTipoLicitacao){
                 Document doc = db.parse(inputSrc);
                 NodeList nodes = doc.getElementsByTagName("Despesa");
                 
+                //montando a tabela com base no XML retornado pelo WS ("parser")
                 for(int i = 0; i < nodes.getLength(); i++){
                     Element element = (Element)nodes.item(i);
                     
@@ -149,6 +151,7 @@ String wTipoLicitacao){
                 response.sendRedirect("./pgErro.jsp");
             }
             
+            //montando a requisição HTTP, e mandando para a nova view
             String pgDestino = new String();
             if(resultado.equals("")) pgDestino = "./noResults.jsp";
             else pgDestino = "./licitacao.jsp";
@@ -160,20 +163,6 @@ String wTipoLicitacao){
         }catch(Exception e){
             response.sendRedirect("./pgErro.jsp");
         }
-        
-        //LicitacaoBean licitacaoBean = new LicitacaoBean();
-        /*List<LicitacaoBean> listaLicitacaoBean = new ArrayList<LicitacaoBean>();
-        try{
-            LicitacaoDAO licitacaoDAO = new LicitacaoDAO();
-            listaLicitacaoBean = licitacaoDAO.getLicitacao();
-        }catch(DAOException e){
-        
-        }catch(SQLException e){
-        
-        }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("licitacao.jsp");
-        request.setAttribute("LicitacaoBean", listaLicitacaoBean);
-        dispatcher.forward(request, response);*/
     }
 
     /**
@@ -185,14 +174,8 @@ String wTipoLicitacao){
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    /*private String getListaDespesa(java.lang.String wNomeCidade, java.lang.String wAno, java.lang.String wMes, java.lang.String wDominio, java.lang.String wSubDominio, java.lang.String wNatureza, java.lang.String wFonte, java.lang.String wTipoLicitacao) {
-        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
-        // If the calling of port operations may lead to race condition some synchronization is required.
-        org.tempuri.TransparenciaWSSoap port = service.getTransparenciaWSSoap();
-        return port.getListaDespesa(wNomeCidade, wAno, wMes, wDominio, wSubDominio, wNatureza, wFonte, wTipoLicitacao);
-    }*/
-
+    
+    //Chamando o método de exibição da lista XML das despesas do WebService
     private String getListaDespesa(java.lang.String wNomeCidade, java.lang.String wAno, java.lang.String wMes, java.lang.String wDominio, java.lang.String wSubDominio, java.lang.String wNatureza, java.lang.String wFonte, java.lang.String wTipoLicitacao) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
         // If the calling of port operations may lead to race condition some synchronization is required.
@@ -200,6 +183,7 @@ String wTipoLicitacao){
         return port.getListaDespesa(wNomeCidade, wAno, wMes, wDominio, wSubDominio, wNatureza, wFonte, wTipoLicitacao);
     }
     
+    //Chamando o método de exibição do valor total somado das despesas do WebService
     private String getTotalDespesa(java.lang.String wNomeCidade, java.lang.String wAno, java.lang.String wMes, java.lang.String wDominio, java.lang.String wSubDominio, java.lang.String wNatureza, java.lang.String wFonte, java.lang.String wTipoLicitacao) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
         // If the calling of port operations may lead to race condition some synchronization is required.
@@ -207,6 +191,7 @@ String wTipoLicitacao){
         return port.getTotalDespesa(wNomeCidade, wAno, wMes, wDominio, wSubDominio, wNatureza, wFonte, wTipoLicitacao);
     }
     
+    //Função auxiliar no "parser" do XML
     public static String getCharacterDataFromElement(Element e) {
     Node child = e.getFirstChild();
     if (child instanceof CharacterData) {

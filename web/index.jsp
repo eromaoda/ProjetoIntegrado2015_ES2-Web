@@ -38,28 +38,6 @@
                     replaced = element.val().replace(soNumeros, '');
                     element.val(replaced);
         	});
-        	
-                /*$(numero).focusOut(function(){
-                    $(erro).fadeOut(1000, function(){
-        		$(this).html('');
-                    });
-                    $(msgErro).fadeOut(1000, function(){
-                        $(this).html('');
-                    });
-        	});*/
-                 
-                 /*
-                $('#dominio').change(function(){
-                    $.ajax({
-                        type: "GET",
-                        url: "SearchSubdomain",
-                        dataType: "html",
-                        data: { dominio: $('#dominio').val() },
-                        success: function(data, textStatus, jqXHR) {
-                            $('#subdom').html(data);
-                        }
-                    });
-                });*/
                 
                 $('#dominio').change(function() {
                     //The above selector gets the State field by its ID
@@ -151,15 +129,6 @@
                             <option value = "12">Dezembro</option>
                         </select>
                     </p>
-                                        
-                    <!--<p class = "row" id = "fil" style = "display:none;">
-                        <label for = "ano">Ano da licitação:</label>
-                        <select class = "right" name = "ano" id = "ano">
-                            <option value = "" selected></option>
-                            <option value = "2013">2013</option>
-                            <option value = "2014">2014</option>
-                        </select>
-                    </p>-->
                     
                     <p style = "text-align: center">
                         <input id="buscar" type = "submit" value = "Buscar Licitação">

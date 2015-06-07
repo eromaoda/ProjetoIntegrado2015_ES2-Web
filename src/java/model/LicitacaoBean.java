@@ -10,7 +10,6 @@ package model;
  * @author usuario
  */
 public class LicitacaoBean {
-    //Dominio e Subdom sao outro Bean?
     private String id;
     private String dominio;
     private String subdominio;

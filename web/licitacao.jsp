@@ -21,9 +21,6 @@
         <script>
             $(document).ready( function () {
                 $('#tabelaResultados').DataTable({
-                    //"lengthMenu": [5, 8, 10, 25, 50, 100];
-                   // "lengthChange": false;
-                    //"paging": true;
                 });
                 
             } );

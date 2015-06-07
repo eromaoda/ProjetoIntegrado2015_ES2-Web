@@ -56,7 +56,7 @@ public class SearchSubdomain extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
+        //Esse servlet serve para atualizar a lista de subdominios no index.jsp
         String dominio = request.getParameter("dominio");
         String subdoms = "";
         
